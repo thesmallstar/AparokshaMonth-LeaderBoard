@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { data } from "../data";
 export default function Details() {
   // const { rollnumber } = useParams();

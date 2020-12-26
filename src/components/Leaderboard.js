@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Row from "./Row";
 
-const url = "http://localhost:8080";
+const url = "https://aparoksha-leaderboard.herokuapp.com";
 export default function Leaderboard() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
