@@ -13,8 +13,10 @@ export default function Row(props) {
             <div className="media-left">
               <figure className="image is-64x64">
                 <img
-                  src="https://bulma.io/images/placeholders/128x128.png"
-                  alt="Image"
+                  height="64px"
+                  width="64px"
+                  src={"https://github.com/" + github + ".png"}
+                  alt="github"
                 />
               </figure>
             </div>
@@ -24,12 +26,21 @@ export default function Row(props) {
                   <strong>
                     {rank + 1}. {name}
                   </strong>{" "}
-                  <small>{roll}</small> <small>{github && "@" + github}</small>
+                  <small>{roll}</small>{" "}
+                  <small>
+                    <a
+                      style={{
+                        color: "black",
+                      }}
+                      href={"https://github.com/" + github}
+                    >
+                      {github && "@" + github}
+                    </a>
+                  </small>
                   <br />
                   <b>{sum} points</b>
                   <Link to={"/user/" + roll}> (View details)</Link>
                 </p>
-                
               </div>
             </div>
           </article>

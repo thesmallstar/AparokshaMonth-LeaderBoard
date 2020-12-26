@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function Header() {
   return (
     <div className="mb-3">
@@ -9,7 +8,7 @@ export default function Header() {
           <center>
             <h1 class="title">Aparoksha Month Leaderboard!</h1>
             <p class="subtitle">
-              Oragnised by <strong>Geekhaven</strong>
+              Oragnized by <strong>Geekhaven</strong>
             </p>
           </center>
         </div>
@@ -20,15 +19,15 @@ export default function Header() {
               height="64px"
               width="64px"
               src="https://geekhaven.iiita.ac.in/images/gh.svg"
-              alt="Image"
+              alt="logo"
             />
 
             <img
               height="64px"
               width="64px"
               src={process.env.PUBLIC_URL + "/logo.png"}
-              alt="Image"
-            />  
+              alt="logo"
+            />
           </center>
         </div>
       </div>

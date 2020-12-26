@@ -2,8 +2,8 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { data } from "../data";
 export default function Details() {
-  const { rollnumber } = useParams();
-  const { rank, name, roll, sum, github, score } = data[0];
+  // const { rollnumber } = useParams();
+  const { name, roll, sum, github, score } = data[0];
 
   return (
     <div>
@@ -21,8 +21,8 @@ export default function Details() {
               <div className="media-left">
                 <figure className="image is-64x64">
                   <img
-                    src="https://bulma.io/images/placeholders/128x128.png"
-                    alt="Image"
+                    src={"https://github.com/" + github + ".png"}
+                    alt="github"
                   />
                 </figure>
               </div>
@@ -30,7 +30,17 @@ export default function Details() {
                 <div className="content">
                   <p>
                     <strong>{name}</strong> <small>{roll}</small>{" "}
-                    <small>{github && "@" + github}</small>
+                    <small>
+                      {" "}
+                      <a
+                        style={{
+                          color: "black",
+                        }}
+                        href={"https://github.com/" + github}
+                      >
+                        {github && "@" + github}
+                      </a>
+                    </small>
                     <br />
                     <b>{sum} points</b>
                     <br />
