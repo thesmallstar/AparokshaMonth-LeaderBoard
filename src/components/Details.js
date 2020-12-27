@@ -15,7 +15,7 @@ export default function Details() {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [rollnumber]);
 
   if (loading) {
     return (
@@ -31,6 +31,21 @@ export default function Details() {
     );
   }
 
+  if (data.roll === "") {
+    return (
+      <center>
+        <div>
+          Is this person participating? Please contact on our discord server.
+        </div>
+        <br />
+        <center>
+          <strong>
+            <Link to="/">BACK</Link>
+          </strong>
+        </center>
+      </center>
+    );
+  }
   return (
     <div>
       <br />
