@@ -1,9 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { data } from "../data";
+import { React, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+const url = "https://aparoksha-leaderboard.herokuapp.com";
 export default function Details() {
-  // const { rollnumber } = useParams();
-  const { name, roll, sum, github, score } = data[0];
+  const { rollnumber } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(url + "/getOne?roll=" + rollnumber);
+      const json = await response.json();
+      console.log(response);
+      setData(json);
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <center>
+        <img
+          className="mt-6"
+          height="64px"
+          width="64px"
+          src={process.env.PUBLIC_URL + "/802.gif"}
+          alt="loading"
+        />
+      </center>
+    );
+  }
 
   return (
     <div>
@@ -21,7 +47,7 @@ export default function Details() {
               <div className="media-left">
                 <figure className="image is-64x64">
                   <img
-                    src={"https://github.com/" + github + ".png"}
+                    src={"https://github.com/" + data.github + ".png"}
                     alt="github"
                   />
                 </figure>
@@ -29,20 +55,22 @@ export default function Details() {
               <div className="media-content">
                 <div className="content">
                   <p>
-                    <strong>{name}</strong> <small>{roll}</small>{" "}
+                    <strong>{data.name}</strong> <small>{data.roll}</small>{" "}
                     <small>
                       {" "}
                       <a
                         style={{
                           color: "black",
                         }}
-                        href={"https://github.com/" + github}
+                        href={"https://github.com/" + data.github}
                       >
-                        {github && "@" + github}
+                        {data.github && "@" + data.github}
                       </a>
                     </small>
                     <br />
-                    <b>{sum} points</b>
+                    <b>Rank {data.rank}</b>
+                    <br />
+                    <b>{data.sum} points</b>
                     <br />
                   </p>
                   <table class="table">
@@ -54,11 +82,11 @@ export default function Details() {
                     </thead>
 
                     <tbody>
-                      {Object.keys(score).map((key, index) => {
+                      {Object.keys(data.score).map((key, index) => {
                         return (
                           <tr>
                             <th>{key}</th>
-                            <td>{score[key]}</td>
+                            <td>{data.score[key]}</td>
                           </tr>
                         );
                       })}
