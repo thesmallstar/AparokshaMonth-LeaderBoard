@@ -8,7 +8,7 @@ export default function Header() {
           <center>
             <h1 class="title">Aparoksha Month Leaderboard!</h1>
             <p class="subtitle">
-              Oragnized by <strong>Geekhaven</strong>
+              Organized by <strong>Geekhaven</strong>
             </p>
           </center>
         </div>
