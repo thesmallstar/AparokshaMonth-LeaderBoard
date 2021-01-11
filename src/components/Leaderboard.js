@@ -18,9 +18,9 @@ export default function Leaderboard() {
     }
     fetchData();
   }, []);
-  data.sort((a, b) => {
-    return a.sum > b.sum ? -1 : 1;
-  });
+  // data.sort((a, b) => {
+  //   return a.sum > b.sum ? -1 : 1;
+  // });
 
   if (loading) {
     return (
